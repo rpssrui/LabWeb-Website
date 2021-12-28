@@ -23,7 +23,9 @@ class User extends Authenticatable
         'email',
         'password',
         'localidade',
-        'regiao'
+        'regiao',
+        'companyName',
+        'is_empregador',
     ];
 
     /**

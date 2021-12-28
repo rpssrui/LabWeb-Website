@@ -86,7 +86,7 @@ class RegisterController extends Controller
     protected function createEmpregador(Request $request)
     {
         User::create([
-            'firstName' => $request['companyName'],
+            'companyName' => $request['companyName'],
             'localidade' => $request['sede'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),

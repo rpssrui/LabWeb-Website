@@ -83,7 +83,7 @@
             @else
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{Auth::user()->firstName}} {{Auth::user()->lastName}}
+                    {{Auth::user()->firstName}} {{Auth::user()->lastName}} {{Auth::user()->companyName}}
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right">

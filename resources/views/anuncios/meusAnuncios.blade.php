@@ -10,7 +10,7 @@ Meus Anuncios
 
 <div class="container">
     <div class="row">
-        <h1>{{Auth::user()->firstName}}</h1>
+        <h1>{{Auth::user()->companyName}}</h1>
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default panel-table">
                 <div class="panel-heading">
