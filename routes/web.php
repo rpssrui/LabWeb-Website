@@ -48,5 +48,6 @@ Route::post('criarAnuncio', [AnuncioController::class, 'createAnuncio'])->name('
 Route::get('/meusAnuncios', [AnuncioController::class, 'showMeusAnuncios'])->name('meusAnuncios');
 Route::get('/anuncios/edit/{id}', [AnuncioController::class, 'editAnuncio']);
 Route::put('anuncios/update/{id}', [AnuncioController::class, 'updateAnuncio']);
+Route::get('anuncios/delete/{id}', [AnuncioController::class, 'deleteAnuncio']);
 
 Route::get('admin.home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');

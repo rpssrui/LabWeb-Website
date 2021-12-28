@@ -36,7 +36,7 @@ Meus Anuncios
                             <tr>
                                 <td align="center">
                                     <a href="anuncios/edit/{{$add->id}}" class="btn btn-default"><em class="fa fa-pencil"></em></a>
-                                    <a href="anuncios/delete/{{$add->id}}" class="btn btn-danger"><em class="fa fa-trash"></em></a>
+                                    <a href="anuncios/delete/{{$add->id}}" class="btn btn-danger" onclick="return confirm('Tem a certeza que pretende apagar este Anuncio?');"><em class="fa fa-trash"></em></a>
                                 </td>
                                 <td>{{$add->titulo}}</td>
                                 <td>{{$add->created_at}}</td>

@@ -49,4 +49,9 @@ class AnuncioController extends Controller
         $anuncios=Anuncio::all(); 
         return view('anuncios.meusAnuncios',['anuncios'=>$anuncios]);
     }
+    public function deleteAnuncio($id){
+        $anuncio = Anuncio::where('id', $id)->firstOrFail();
+        $anuncio->delete();
+        return redirect(route('meusAnuncios'));
+    }
 }
