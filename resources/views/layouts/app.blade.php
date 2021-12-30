@@ -85,7 +85,7 @@
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{Auth::user()->firstName}} {{Auth::user()->lastName}} {{Auth::user()->companyName}}
                 </button>
-                @if(Auth::user()->isempregador)
+                @if(Auth::user()->is_empregador)
                 <!--CONTA EMPREGADOR-->
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="{{ url('/criarAnuncio') }}" onclick="event.preventDefault();
