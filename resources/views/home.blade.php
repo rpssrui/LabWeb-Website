@@ -42,12 +42,12 @@ Jobs R'Us
 </section>
 <section class="search-sec">
     <div class="container">
-        <form action="#" method="post" novalidate="novalidate">
+        <form action="{{url('/searchAdd')}}" method="get">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="O que procura?">
+                            <input type="text" class="form-control search-slt" name="pesquisar" placeholder="O que procura?">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                             <select class="form-control search-slt" id="exampleFormControlSelect1">
@@ -92,7 +92,7 @@ Jobs R'Us
                             </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="button" class="btn btn-danger wrn-btn">Pesquisar</button>
+                            <button type="submit" class="btn btn-danger wrn-btn">Pesquisar</button>
                         </div>
                     </div>
                 </div>

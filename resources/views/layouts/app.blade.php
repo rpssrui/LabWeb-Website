@@ -85,16 +85,9 @@
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{Auth::user()->firstName}} {{Auth::user()->lastName}} {{Auth::user()->companyName}}
                 </button>
-
+                @if(Auth::user()->isempregador)
+                <!--CONTA EMPREGADOR-->
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-
                     <a class="dropdown-item" href="{{ url('/criarAnuncio') }}" onclick="event.preventDefault();
                                                      document.getElementById('createAnuncio-form').submit();">
                         {{ __('Criar Anuncio') }}
@@ -110,10 +103,37 @@
                     <form id="meusAnuncios-form" action="{{ url('/meusAnuncios') }}" method="get" class="d-none">
                         @csrf
                     </form>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    <!-- CONTA CANDIDATO-->
+                    @else
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- Informações pessoais-->
+                        <a class="dropdown-item" href="/informacoesPessoais/{{Auth::user()->id}}"  >
+                            {{ __('Informações Pesoais') }}
+                        </a>
+                        </form>
+                        <!-- Logout-->
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
 
+                            @csrf
+                        </form>
+                        @endif
+
+                    </div>
                 </div>
-            </div>
-            @endguest
+                @endguest
     </nav>
     <main class="container mt-4">
         @yield('content')

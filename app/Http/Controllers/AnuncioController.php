@@ -9,6 +9,14 @@ use Illuminate\Routing\RouteUrlGenerator;
 
 class AnuncioController extends Controller
 {
+    public function searchAnuncio(Request $request){
+        $results=Anuncio::query();
+        if(request('pesquisar')){
+            $results->where('titulo','Like','%'.request('pesquisar').'%');
+        }
+        $results->orderBy('id','DESC');
+        return view('anuncios.anunciosIndex',compact('results'));
+    }
     
     protected function createAnuncio(Request $request)
     {

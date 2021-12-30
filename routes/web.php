@@ -33,6 +33,8 @@ Route::post('home', [HomeController::class, 'home'])->name('home');
 
 Route::get('/registerCandidato', [UserController::class, 'registerCandidato']);
 Route::post('createCandidato', [RegisterController::class, 'createCandidato'])->name('createCandidato');
+Route::get('/informacoesPessoais/{id}', [UserController::class, 'informacoesPessoais']);
+
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -49,5 +51,5 @@ Route::get('/meusAnuncios', [AnuncioController::class, 'showMeusAnuncios'])->nam
 Route::get('/anuncios/edit/{id}', [AnuncioController::class, 'editAnuncio']);
 Route::put('anuncios/update/{id}', [AnuncioController::class, 'updateAnuncio']);
 Route::get('anuncios/delete/{id}', [AnuncioController::class, 'deleteAnuncio']);
-
+Route::get('/searchAdd', [AnuncioController::class, 'searchAnuncio']);
 Route::get('admin.home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
