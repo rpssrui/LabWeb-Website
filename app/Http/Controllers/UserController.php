@@ -8,7 +8,17 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-   
+    public function uploadImage(Request $request, $id)
+    {
+        $user=User::find($id);
+        if($request->hasFile('image')){
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('images',$filename,'public');
+            $user->update(['image'=>$filename]);
+        }
+        return redirect()->back();
+    }
+
     public function createCandidato()
     {
         return view('user.candidatosRegister');

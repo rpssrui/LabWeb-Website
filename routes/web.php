@@ -34,6 +34,7 @@ Route::post('home', [HomeController::class, 'home'])->name('home');
 Route::get('/registerCandidato', [UserController::class, 'registerCandidato']);
 Route::post('createCandidato', [RegisterController::class, 'createCandidato'])->name('createCandidato');
 Route::get('/informacoesPessoais/{id}', [UserController::class, 'informacoesPessoais']);
+Route::post('/uploadPP/{id}',[UserController::class, 'uploadImage']);
 
 Route::get('/login', function () {
     return view('auth.login');

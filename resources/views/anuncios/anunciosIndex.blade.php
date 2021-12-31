@@ -6,8 +6,6 @@ Meus Anuncios
 
 
 @section('content')
-
-
 <div class="container">
     <div class="row">
         <h1>{{Auth::user()->companyName}}</h1>
@@ -36,7 +34,7 @@ Meus Anuncios
                                 <td>{{$add->titulo}}</td>
                                 <td>{{$add->created_at}}</td>
                                 <td>{{$add->tipo}}</td>
-                                <td> BOTÃO ABRIR </td>
+                                <td> <button type="button" class="btn btn-outline-success">Ver Mais</button> </td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -40,8 +40,15 @@
                 </div>
             </div>
             <div class="col-lg-6">
+                @if(Auth::user()->image)
+                <img class="image" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" style="width: 380px;height: 380px; padding: 10px; margin-left: 30px; ">
+                @endif
                 <div class="about-avatar">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+                    <form action="{{ url('uploadPP', [Auth::user()->id]) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="image">
+                        <input type="submit" value="Upload">
+                    </form>
                 </div>
             </div>
         </div>

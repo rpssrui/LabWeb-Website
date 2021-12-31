@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_admin')->default(false);
             $table->boolean('is_empregador')->default(false);
             $table->string('localidade');
+            $table->string('image')->default('user.png');
             $table->string('regiao')->nullable();
             $table->rememberToken();
             $table->timestamps();

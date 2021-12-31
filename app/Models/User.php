@@ -26,6 +26,7 @@ class User extends Authenticatable
         'regiao',
         'companyName',
         'is_empregador',
+        'image',
     ];
 
     /**

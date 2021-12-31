@@ -42,7 +42,8 @@ Jobs R'Us
 </section>
 <section class="search-sec">
     <div class="container">
-        <form action="{{url('/searchAdd')}}" method="get">
+        <form action="{{url('searchAdd')}}" method="get">
+        @csrf
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
