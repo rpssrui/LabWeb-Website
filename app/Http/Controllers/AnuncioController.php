@@ -28,33 +28,43 @@ class AnuncioController extends Controller
     }
 
     protected function createAnuncio(Request $request)
-    {
-        Anuncio::create([
-            'descricao' => $request['descricao'],
-            'titulo' => $request['titulo'],
-            'tipo' => $request['tipo'],
-            'idEmpresa' => $request['idEmpresa'],
-        ]);
-        return redirect()->route('meusAnuncios');
-    }
+		{
+			 Anuncio::create([
+				'descricao' => $request['descricao'],
+				'titulo' => $request['titulo'],
+				'tipo' => $request['tipo'],
+				'idEmpresa' => $request['idEmpresa'],
+				'localidade'=>$request['localidade'],
+				'regiao'=>$request['regiao'],
+				'habilitacoes minimas'=>$request['habilitacoes minimas'],
+				'contactos'=>$request['contactos'],
+				'setor de atividade'=>$request['setor de atividade'],
+				
+			]);
+		   return redirect()->route('meusAnuncios');
+		}
 
-    public function editAnuncio($id)
-    {
-        $anuncio = Anuncio::find($id);
-        return view('anuncios.editarAnuncio', compact('anuncio'));
-    }
+		public function editAnuncio($id){
+			$anuncio= Anuncio::find($id);
+			return view('anuncios.editarAnuncio', compact('anuncio'));
+		}
 
-    public function updateAnuncio(Request $request, $id)
-    {
-        $anuncio = Anuncio::where('id', $id)
-            ->update([
-                'descricao' => $request['descricao'],
-                'titulo' => $request['titulo'],
-                'tipo' => $request['tipo'],
-            ]);
+		public function updateAnuncio(Request $request, $id)
+		{
+			$anuncio = Anuncio::where('id', $id)
+				->update([
+					'descricao' => $request['descricao'],
+					'titulo' => $request['titulo'],
+					'tipo' => $request['tipo'],
+					'localidade'=>$request['localidade'],
+					'regiao'=>$request['regiao'],
+					'habilitacoes minimas'=>$request['habilitacoes minimas'],
+					'contactos'=>$request['contactos'],
+					'setorAtividade'=>$request['setorAtividade'],
+			]);
 
-        return redirect(route('meusAnuncios'));
-    }
+			return redirect(route('meusAnuncios'));
+		}
 
     public function showCriarAnuncio()
     {

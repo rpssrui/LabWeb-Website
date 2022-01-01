@@ -19,6 +19,28 @@ Criar Anuncio
 				<textarea id="descricao" name="descricao" class="form-control" required></textarea>
 				<label for="descricao">Descrição</label>
 			</div>
+
+			<div class="form-group">
+				<input id="localidade" name="localidade" class="form-control" required></input>
+				<label for="localidade">localidade</label>
+			</div>
+			<div class="form-group">
+				<input id="regiao" name="regiao" class="form-control" required></input>
+				<label for="regiao">regiao</label>
+			</div>
+			<div class="form-group">
+				<input id="habilitacoes" name="habilitacoes" class="form-control" required></input>
+				<label for="habilitacoes">habilitacoes</label>
+			</div>
+			<div class="form-group">
+				<input id="setorAtividade" name="setorAtividade" class="form-control" required></input>
+				<label for="setorAtividade">setor de atividade</label>
+			</div>
+			<div class="form-group">
+				<input id="contactos" name="contactos" class="form-control" required></input>
+				<label for="contactos">contactos</label>
+			</div>
+
 			<div class="form-group">
 				<label for="tipo">Tipo de Contrato</label>
 				<select name="tipo" id="tipo">
