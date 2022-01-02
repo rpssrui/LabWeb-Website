@@ -36,9 +36,9 @@ class AnuncioController extends Controller
 				'idEmpresa' => $request['idEmpresa'],
 				'localidade'=>$request['localidade'],
 				'regiao'=>$request['regiao'],
-				'habilitacoes minimas'=>$request['habilitacoes minimas'],
+				'habilitacoesMinimas'=>$request['habilitacoesMinimas'],
 				'contactos'=>$request['contactos'],
-				'setor de atividade'=>$request['setor de atividade'],
+				'setorAtividade'=>$request['setorAtividade'],
 				
 			]);
 		   return redirect()->route('meusAnuncios');
@@ -58,7 +58,7 @@ class AnuncioController extends Controller
 					'tipo' => $request['tipo'],
 					'localidade'=>$request['localidade'],
 					'regiao'=>$request['regiao'],
-					'habilitacoes minimas'=>$request['habilitacoes minimas'],
+					'habilitacoesMinimas'=>$request['habilitacoesMinimas'],
 					'contactos'=>$request['contactos'],
 					'setorAtividade'=>$request['setorAtividade'],
 			]);
@@ -83,4 +83,11 @@ class AnuncioController extends Controller
         $anuncio->delete();
         return redirect(route('meusAnuncios'));
     }
+
+	public function showVerMais($id){
+		$anuncio= Anuncio::find($id);
+		$empresa=User::find($anuncio->idEmpresa);
+		
+		return view('anuncios.verMais', compact('anuncio','empresa'));
+	}
 }

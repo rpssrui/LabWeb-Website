@@ -10,10 +10,10 @@ Criar Anuncio
 		<form method="POST" class="col-md-9 go-right" action="{{ route('createAnuncio') }}">
 			@csrf
 			<h2>Criar Anuncio</h2>
-			<p>Por favor insira uma descrição detalhada</p>
+			<p>Por favor insira uma descrição detalhada.</p>
 			<div class="form-group">
 				<input id="titulo" name="titulo" type="text" class="form-control" required>
-				<label for="titulo">Titulo</label>
+				<label for="titulo">Título</label>
 			</div>
 			<div class="form-group">
 				<textarea id="descricao" name="descricao" class="form-control" required></textarea>
@@ -22,23 +22,23 @@ Criar Anuncio
 
 			<div class="form-group">
 				<input id="localidade" name="localidade" class="form-control" required></input>
-				<label for="localidade">localidade</label>
+				<label for="localidade">Localidade</label>
 			</div>
 			<div class="form-group">
 				<input id="regiao" name="regiao" class="form-control" required></input>
-				<label for="regiao">regiao</label>
+				<label for="regiao">Região</label>
 			</div>
 			<div class="form-group">
-				<input id="habilitacoes" name="habilitacoes" class="form-control" required></input>
-				<label for="habilitacoes">habilitacoes</label>
+				<input id="habilitacoesMinimas" name="habilitacoesMinimas" class="form-control" required></input>
+				<label for="habilitacoesMinimas">Habilitacoes</label>
 			</div>
 			<div class="form-group">
 				<input id="setorAtividade" name="setorAtividade" class="form-control" required></input>
-				<label for="setorAtividade">setor de atividade</label>
+				<label for="setorAtividade">Setor de Atividade</label>
 			</div>
 			<div class="form-group">
 				<input id="contactos" name="contactos" class="form-control" required></input>
-				<label for="contactos">contactos</label>
+				<label for="contactos">Contactos</label>
 			</div>
 
 			<div class="form-group">

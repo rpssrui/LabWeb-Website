@@ -14,6 +14,12 @@ class Anuncio extends Model
         'titulo',
         'descricao',
         'tipo',
+        'idEmpresa',
+        'setorAtividade',
+        'regiao',
+        'localidade',
+        'contactos',
+        'habilitacoesMinimas'
     ];
 
 }

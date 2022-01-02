@@ -16,7 +16,6 @@ class CreateAnunciosTable extends Migration
         Schema::create('anuncios', function (Blueprint $table) {
             $table->id();
             $table->string('titulo')->nullable();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('descricao')->nullable();
             $table->integer('idEmpresa')->nullable();
             $table->string('tipo')->nullable();
@@ -25,7 +24,7 @@ class CreateAnunciosTable extends Migration
             $table->string('regiao')->nullable();
             $table->string('localidade')->nullable();
             $table->string('contactos')->nullable();
-            $table->string('habilitacoes minimas')->nullable();
+            $table->string('habilitacoesMinimas')->nullable();
             $table->string('setorAtividade')->nullable();
             
 

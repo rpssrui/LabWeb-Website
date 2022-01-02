@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmpregadorController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MailController;
 use App\Models\User;
 
 /*
@@ -33,7 +34,7 @@ Route::post('home', [HomeController::class, 'home'])->name('home');
 
 Route::get('/registerCandidato', [UserController::class, 'registerCandidato']);
 Route::post('createCandidato', [RegisterController::class, 'createCandidato'])->name('createCandidato');
-Route::get('/informacoesPessoais/{id}', [UserController::class, 'informacoesPessoais']);
+Route::get('/informacoesPessoais/{id}', [UserController::class, 'informacoesPessoais'])->middleware('verified');
 Route::post('/uploadPP/{id}',[UserController::class, 'uploadImage']);
 
 Route::get('/login', function () {
@@ -44,13 +45,18 @@ Route::post('login', [UserController::class, 'login'])->name('login');
 Route::get('/registerEmpregador', [UserController::class, 'registerEmpregador']);
 Route::post('createEmpregador', [RegisterController::class, 'createEmpregador'])->name('createEmpregador');
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
-Route::get('/criarAnuncio', [AnuncioController::class, 'showCriarAnuncio']);
+Route::get('/criarAnuncio', [AnuncioController::class, 'showCriarAnuncio'])->middleware('verified');    
 Route::post('criarAnuncio', [AnuncioController::class, 'createAnuncio'])->name('createAnuncio');
 Route::get('/meusAnuncios', [AnuncioController::class, 'showMeusAnuncios'])->name('meusAnuncios');
 Route::get('/anuncios/edit/{id}', [AnuncioController::class, 'editAnuncio']);
 Route::put('anuncios/update/{id}', [AnuncioController::class, 'updateAnuncio']);
 Route::get('anuncios/delete/{id}', [AnuncioController::class, 'deleteAnuncio']);
 Route::get('/searchAdd', [AnuncioController::class, 'searchAnuncio']);
+Route::get('/verMais/{id}',[AnuncioController::class, 'showVerMais'])->middleware('verified');  
+
+Route::post('contactarEmpresa',[MailController::class,'contactPost'])->name('contactarEmpresa')->middleware('verified');
+
+
 Route::get('admin.home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');

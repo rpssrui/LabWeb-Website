@@ -1,7 +1,7 @@
 @extends ('layouts\app')
 
 @section('title')
-Criar Anuncio
+Editar Anuncio
 @endsection
 
 @section('content')
@@ -9,37 +9,44 @@ Criar Anuncio
 <div class="container">
 	<div class="row">
 		<form method="POST" class="col-md-9 go-right" action="{{url('anuncios/update/'.$anuncio->id)}}">
-		@csrf
-		@if($anuncio->id) {{method_field('PUT')}} @endif <!-- para ir buscar o id do anuncio -->
+			@csrf
+			@if($anuncio->id) {{method_field('PUT')}} @endif
+			<!-- para ir buscar o id do anuncio -->
 			<h2>Editar Anuncio</h2>
 			<p>Por favor insira uma descrição detalhada</p>
 			<div class="form-group">
+				<label for="titulo">Título</label>
 				<input id="titulo" name="titulo" type="text" value="{{$anuncio->titulo}}" class="form-control" required></input>
-				<label for="titulo">Titulo</label>
+
 			</div>
 			<div class="form-group">
-				<textarea id="descricao" name="descricao" class="form-control"  required >{{$anuncio->descricao}}</textarea>
 				<label for="descricao">Descrição</label>
+				<textarea id="descricao" name="descricao" class="form-control" required>{{$anuncio->descricao}}</textarea>
+
 			</div>
 			<div class="form-group">
-				<input id="localidade" name="localidade" class="form-control" required>{{$anuncio->localidade}}</input>
-				<label for="localidade">localidade</label>
+				<label for="localidade">Localidade</label>
+				<input id="localidade" name="localidade" class="form-control" value="{{$anuncio->localidade}}" required></input>
+
 			</div>
 			<div class="form-group">
-				<input id="regiao" name="regiao" class="form-control" required>{{$anuncio->regiao}}</input>
-				<label for="regiao">regiao</label>
+				<label for="regiao">Região</label>
+				<input id="regiao" name="regiao" class="form-control" value="{{$anuncio->regiao}}" required></input>
+
 			</div>
 			<div class="form-group">
-				<input id="habilitacoes" name="habilitacoes" class="form-control" required>{{$anuncio->habilitacoes}}</input>
-				<label for="habilitacoes">habilitacoes</label>
+				<label for="habilitacoes">Habilitações</label>
+				<input id="habilitacoes" name="habilitacoes" class="form-control" value="{{$anuncio->habilitacoesMinimas}}" required></input>
+
 			</div>
 			<div class="form-group">
-				<input id="setorAtividade" name="setorAtividade" class="form-control" required>{{$anuncio->setorAtividade}}</input>
-				<label for="setorAtividade">setor de atividade</label>
+				<label for="setorAtividade">Setor de Atividade</label>
+				<input id="setorAtividade" name="setorAtividade" class="form-control" value="{{$anuncio->setorAtividade}}" required></input>
+
 			</div>
 			<div class="form-group">
-				<input id="contactos" name="contactos" class="form-control" required>{{$anuncio->contactos}}</input>
-				<label for="contactos">contactos</label>
+				<label for="contactos">Contactos</label>
+				<input id="contactos" name="contactos" class="form-control" value="{{$anuncio->contactos}}" required></input>
 			</div>
 			<div class="form-group">
 				<label for="tipo">Tipo de Contrato</label>
@@ -56,7 +63,9 @@ Criar Anuncio
 			<button type="submit" class="btn btn-primary">
 				{{ __('Editar') }}
 			</button>
+			<a class="btn btn-primary" href="{{url('/meusAnuncios')}}"> Voltar Atrás</a>
 		</form>
+		
 	</div>
 </div>
 
