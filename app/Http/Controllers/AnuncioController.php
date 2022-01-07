@@ -17,11 +17,14 @@ class AnuncioController extends Controller
 		$regiao = $_GET['regiao'];
 		$tipo = $_GET['tipo'];
 
-		$results = Anuncio::where('titulo', 'Like',  $nome)
+		$results = Anuncio::where('titulo', 'Like',$nome.'%')
 			->orwhere('regiao', $regiao)
 			->orwhere('tipo', $tipo)
 			->get();
+			return view('anuncios.anunciosIndex', compact('results'));
+		if(empty($results)){
 
+		}
 		return view('anuncios.anunciosIndex', compact('results'));
 	}
 

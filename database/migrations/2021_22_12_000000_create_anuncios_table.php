@@ -26,6 +26,7 @@ class CreateAnunciosTable extends Migration
             $table->string('contactos')->nullable();
             $table->string('habilitacoesMinimas')->nullable();
             $table->string('setorAtividade')->nullable();
+            $table->unsignedInteger('nrReports')->nullable();
 
             $table->foreign('idEmpresa')
                 ->references('id')

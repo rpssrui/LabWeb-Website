@@ -6,7 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('createEmpregador') }}">
                         @csrf
@@ -78,6 +77,11 @@
                         <button type="submit" class="btn btn-primary">
                             {{ __('Registo') }}
                         </button>
+                        @if($message=Session::get('error'))
+                        <div class="alert alert-danger">
+                            <p>{{$message}}</p>
+                        </div>
+                        @endif  
                 </div>
             </div>
             </form>

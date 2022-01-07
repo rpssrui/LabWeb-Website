@@ -26,6 +26,8 @@ class CreateUsersTable extends Migration
             $table->string('localidade');
             $table->string('image')->default('user.png');
             $table->string('regiao')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('descricao')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -45,7 +45,7 @@ Route::get('/login', function () {
 });
 Route::post('login', [UserController::class, 'login'])->name('login');
 
-Route::get('/registerEmpregador', [UserController::class, 'registerEmpregador']);
+Route::get('/registerEmpregador', [UserController::class, 'registerEmpregador'])->name('registerEmpregador');
 Route::post('createEmpregador', [RegisterController::class, 'createEmpregador'])->name('createEmpregador');
 
 Auth::routes(['verify'=>true]);
@@ -66,4 +66,7 @@ Route::get('/resposta/{id}',[CandidaturaController::class,'showRespostaForm']);
 Route::get('enviarResposta/{id}',[MailController::class,'contactPost']);
 Route::get('user/{id}', [UserController::class, 'userProfile'])->middleware('verified');
 
-Route::get('admin.home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('admin', [HomeController::class, 'adminHome'])->name('admin')->middleware('is_admin');
+
+Route::post('/user/editar/{id}', [UserController::class, 'updatePerfil']);
+Route::get('team', [HomeController::class, 'team']);

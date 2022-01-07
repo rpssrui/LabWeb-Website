@@ -1,59 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-    <title>Document</title>
-</head>
-<body>
-    
 
-<footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
+<footer class="section footer-classic context-dark bg-image" style="background: #BFC2C5; position:relative;height:260px; border-top:1px;">
         <div class="container">
           <div class="row row-30">
             <div class="col-md-4 col-xl-5">
-              <div class="pr-xl-4"><a class="brand" href="/index"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
-                <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
+              <div class="pr-xl-4"><a class="brand" href="index.html"></a>
+                <p>Nos somos um site que tem como objetivo ajudar pop a encontrar emprego,part time ou fazer voluntariado :) .</p>
                 <!-- Rights-->
-                <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
+                <p class="rights"><span>©  </span><span class="copyright-year">2022</span><span> </span><span>Jobs R'Us</span><span>. </span><span>All Rights Reserved.</span></p>
               </div>
             </div>
             <div class="col-md-4">
               <h5>Contacts</h5>
               <dl class="contact-list">
                 <dt>Address:</dt>
-                <dd>798 South Park Avenue, Jaipur, Raj</dd>
+                <dd>Praça de 9 de Abril 349, 4249-004 Porto</dd>
               </dl>
               <dl class="contact-list">
                 <dt>email:</dt>
-                <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
+                <dd><a href="mailto:#">38217@ufp.edu.pt</a></dd>
               </dl>
-              <dl class="contact-list">
-                <dt>phones:</dt>
-                <dd><a href="tel:#">https://karosearch.com</a> <span>or</span> <a href="tel:#">https://karosearch.com</a>
-                </dd>
-              </dl>
+
             </div>
             <div class="col-md-4 col-xl-3">
               <h5>Links</h5>
               <ul class="nav-list">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">Pricing</a></li>
+                <li><a class="text-muted" href="team" target="_blank">team</a> </li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="row no-gutters social-container">
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
-        </div>
+
       </footer>
-</body>
-</html>

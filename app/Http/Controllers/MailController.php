@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\defaultMail;
 
 use App\Models\Candidatura;
+use App\Models\Resposta;
 
 class MailController extends Controller
 {
@@ -20,6 +21,11 @@ class MailController extends Controller
                 $anuncio=Anuncio::find($candidatura->idAnuncio)->firstorfail();
                 $empresa=User::find($anuncio->idEmpresa)->firstorfail();
                 
+                Resposta::create([
+                        'resposta'=>$request->mensagem,
+                        'idCandidatura'=>$candidatura->id
+                ]);
+
                 $data = array(
                         "body" => $request->mensagem,
                         "subject" => $request->subject,
@@ -27,9 +33,14 @@ class MailController extends Controller
                         "nomeEmpresa"=>$empresa->companyName,
                 );
 
+                if($request->Sim){
                 Mail::to($candidatura->emailCandidato)
                 ->send(new defaultMail($data));
 
                 return back()->with('success', 'Email enviado com Sucesso!');
+                }
+
+                else 
+                return back()->with('success','Resposta enviada com Sucesso, pode ainda responder novamente através do email');
         }
 }

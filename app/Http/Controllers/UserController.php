@@ -70,4 +70,18 @@ class UserController extends Controller
     {
         return view('auth/registerEmpregador');
     }
+
+    public function updatePerfil(Request $request, $id)
+    {
+        $user = user::where('id', $id)
+            ->update([
+               // 'descricao' => $request['descricao'],
+                'localidade'=>$request['localidade'],
+                'regiao'=>$request['regiao'],
+
+
+        ]);
+
+        return back()->with('success','Alterações feitas com sucesso ');
+    }
 }

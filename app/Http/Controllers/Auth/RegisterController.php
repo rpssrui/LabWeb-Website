@@ -10,7 +10,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-
 use function PHPUnit\Framework\isFalse;
 use function PHPUnit\Framework\isTrue;
 
@@ -81,25 +80,32 @@ class RegisterController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'is_empregador'=>0,
+            'is_empregador' => 0,
         ]);
         return view('auth.login');
     }
 
     protected function createEmpregador(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+        $rules = array(
+            'email' => 'required|email|unique:users',
+            'password' => 'required'
+        );
+        $input=$request->all();
+
+        $validator = Validator::make($input, $rules);
         
-        User::create([
-            'companyName' => $request['companyName'],
-            'localidade' => $request['sede'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'is_empregador'=>1,
-        ]);
-        return view('auth.login');
+        if ($validator->fails()) {
+            return redirect()->route('registerEmpregador')->with('error', 'Email introduzido já se econtra em uso.');
+        } else {
+            User::create([
+                'companyName' => $request['companyName'],
+                'localidade' => $request['sede'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+                'is_empregador' => 1,
+            ]);
+            return view('auth.login');
+        }
     }
 }
