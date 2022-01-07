@@ -25,7 +25,36 @@ Criar Anuncio
 				<label for="localidade">Localidade</label>
 			</div>
 			<div class="form-group">
-				<input id="regiao" name="regiao" class="form-control" required></input>
+			<select class="form-control search-slt" id="exampleFormControlSelect1" name="regiao">
+                                <option>Aveiro</option>
+                                <option>Beja</option>
+                                <option>Braga</option>
+                                <option>Bragança</option>
+                                <option>Castelo Branco</option>
+                                <option>Coimbra</option>
+                                <option>Évora</option>
+                                <option>Faro</option>
+                                <option>Guarda</option>
+                                <option>Leiria</option>
+                                <option>Lisboa</option>
+                                <option>Portalegre</option>
+                                <option>Porto</option>
+                                <option>Santarém</option>
+                                <option>Setúbal</option>
+                                <option>Viana do Castelo</option>
+                                <option>Vila Real</option>
+                                <option>Ilha da Madeira</option>
+                                <option>Ilha de S.Miguel</option>
+                                <option>Ilha de Porto Santo</option>
+                                <option>Ilha de Santa Maria</option>
+                                <option>Ilha Terceira</option>
+                                <option>Ilha da Graciosa</option>
+                                <option>Ilha S.Jorge</option>
+                                <option>Ilha do Pico</option>
+                                <option>Ilha do Faial</option>
+                                <option>Ilha das Flores</option>
+                                <option>Ilha do Corvo</option>
+                            </select>
 				<label for="regiao">Região</label>
 			</div>
 			<div class="form-group">
@@ -49,9 +78,6 @@ Criar Anuncio
 					<option value="Voluntariado">Voluntariado</option>
 					<option value="Part-Time">Part-Time</option>
 				</select>
-			</div>
-			<div class="form-group">
-				<input type="hidden" id="idEmpresa" name="idEmpresa" value="{{Auth::user()->id}}" class="form-control"> </input>
 			</div>
 			<button type="submit" class="btn btn-primary">
 				{{ __('Criar') }}

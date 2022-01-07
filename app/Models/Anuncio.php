@@ -21,5 +21,8 @@ class Anuncio extends Model
         'contactos',
         'habilitacoesMinimas'
     ];
-
+    
+    public function criador(){
+        return $this->belongsTo(User::class,'anuncio_id','id');
+    }
 }

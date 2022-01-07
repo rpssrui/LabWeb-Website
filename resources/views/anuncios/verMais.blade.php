@@ -47,43 +47,14 @@
     </div>
 </div>
 
-<p> Está interessado neste anúncio?
-    Entre já em contacto com o anunciante.</p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="contactForm">
-    Contactar Anunciante
-</button>
+<div class="container">
+    <p> Está interessado neste anúncio?
+        Entre já em contacto com o anunciante.</p>
+    <form method="POST" action="{{ url('contactarEmpresa', $anuncio->id) }}">
+        @csrf
+        <textarea id="mensagem" name="mensagem" class="form-control" placeholder="O utilizador {{Auth::user()->firstName}} {{Auth::user()->lastName}} está interassado no seu anuncio."></textarea>
+        <button type="submit" class="btn btn-primary">Enviar Candidatura!</button>
+    </form>
+</div>
 
-<div class="collapse" id="collapseExample">
-    <div class="card card-body">
-
-        <div class="container">
-            @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-            @endif
-
-            <form method="POST" action="{{route('contactarEmpresa')}}">
-                @csrf
-                <div class="form-group">
-                    <label for="email">Endereço de Email</label>
-                    <input name="email" type="email" class="form-control" id="email" value="{{Auth::user()->email}}" required></input>
-                </div>
-                <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input name="name" type="text" class="form-control" id="name" value="{{Auth::user()->firstName}} {{Auth::user()->lastName}}" required></input>
-
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Mensagem</label>
-                    <textarea name="info" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="hidden" id="emailEmpresa" name="emailEmpresa" value="{{$empresa->email}}" class="form-control"> </input>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
-    </div>
-
-    @endsection
+@endsection

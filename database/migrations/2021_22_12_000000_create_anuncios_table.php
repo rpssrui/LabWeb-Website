@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateAnunciosTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations.s
      *
      * @return void
      */
@@ -17,17 +17,21 @@ class CreateAnunciosTable extends Migration
             $table->id();
             $table->string('titulo')->nullable();
             $table->string('descricao')->nullable();
-            $table->integer('idEmpresa')->nullable();
             $table->string('tipo')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->string('regiao')->nullable();
+            $table->unsignedBigInteger('idEmpresa');
             $table->string('localidade')->nullable();
             $table->string('contactos')->nullable();
             $table->string('habilitacoesMinimas')->nullable();
             $table->string('setorAtividade')->nullable();
-            
 
+            $table->foreign('idEmpresa')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('CASCADE')
+                ->onDelete('RESTRICT');
         });
     }
 

@@ -1,17 +1,12 @@
 @extends ('layouts\app')
 
 @section('title')
-Meus Anuncios
+Candidaturas
 @endsection
-
 
 @section('content')
 
-@if($message=Session::get('error'))
-<div class="alert alert-danger">
-    <p>{{$message}}</p>
-</div>
-@endif
+
 <div class="container">
     <div class="row">
         <h1>{{Auth::user()->companyName}}</h1>
@@ -20,7 +15,7 @@ Meus Anuncios
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col col-xs-6">
-                            <h5 class="panel-title">Meus Anuncios</h5>
+                            <h5 class="panel-title">Respostas aos Anúncios:</h5>
                         </div>
                     </div>
                 </div>
@@ -28,24 +23,25 @@ Meus Anuncios
                     <table class="table table-striped table-bordered table-list">
                         <thead>
                             <tr>
-                                <th><em class="fa fa-cog"></em></th>
-                                <th>Título</th>
-                                <th>Data</th>
-                                <th>Tipo</th>
-                                <th>Candidaturas</th>
+                                <th>Nome do Candidato</th>
+                                <th>Email do Candidato</th>
+                                <th>Data de Envio</th>
+                                <th>Mensagem</th>
+                                <th>Responder</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($anuncios as $add)
+                            @foreach($candidaturas as $candidatura)
                             <tr>
                                 <td align="center">
-                                    <a href="anuncios/edit/{{$add->id}}" class="btn btn-default"><em class="fa fa-pencil"></em></a>
-                                    <a href="anuncios/delete/{{$add->id}}" class="btn btn-danger" onclick="return confirm('Tem a certeza que pretende apagar este Anuncio?');"><em class="fa fa-trash"></em></a>
+                                    <a href="/user/{{$candidatura->idCandidato}}" class="btn btn-default">{{$candidatura->nomeCandidato}}</a>
                                 </td>
-                                <td align="center">{{$add->titulo}}</td>
-                                <td align="center">{{$add->created_at}}</td>
-                                <td align="center">{{$add->tipo}}</td>
-                                <td align="center"><a href="anuncios/Candidaturas/{{$add->id}}" class="btn btn-default"><em class="fa fa-plus"></em></a></td>
+                                <td align="center">{{$candidatura->emailCandidato}}</td>
+                                <td align="center">{{$candidatura->created_at}}</td>
+                                <td align="center">{{$candidatura->mensagem}}</td>
+                                <td align="center">
+                                    <a href="/resposta/{{$candidatura->id}}" class="btn btn-default"><em class="fa fa-envelope"></em></a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

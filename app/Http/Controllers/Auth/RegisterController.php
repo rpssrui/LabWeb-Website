@@ -55,8 +55,6 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firstName' => ['required', 'string', 'max:255'],
-            'lastName' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -70,6 +68,11 @@ class RegisterController extends Controller
      */
     protected function createCandidato(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
         User::create([
             'firstName' => $request['firstName'],
             'lastName' => $request['lastName'],
@@ -85,6 +88,11 @@ class RegisterController extends Controller
 
     protected function createEmpregador(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        
         User::create([
             'companyName' => $request['companyName'],
             'localidade' => $request['sede'],

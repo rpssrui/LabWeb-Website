@@ -26,21 +26,18 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                             </div>
                         </div>
-                         @if($errors->any())
-                                <ul class="alert alert-danger">
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                                @endif
-
+                        @if($message=Session::get('error'))
+                        <div class="alert alert-danger">
+                            <p>{{$message}}</p>
+                        </div>
+                        @endif
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Guardar dados de início de sessão') }}
                                     </label>
                                 </div>
                             </div>

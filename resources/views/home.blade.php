@@ -48,10 +48,10 @@ Jobs R'Us
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" name="pesquisar" placeholder="O que procura?">
+                            <input type="text" class="form-control search-slt" name="nome" placeholder="O que procura?">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select class="form-control search-slt" id="exampleFormControlSelect1">
+                            <select class="form-control search-slt" id="exampleFormControlSelect1" name="regiao">
                                 <option>Onde?</option>
                                 <option>Aveiro</option>
                                 <option>Beja</option>
@@ -84,7 +84,7 @@ Jobs R'Us
                             </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select class="form-control search-slt" id="exampleFormControlSelect1">
+                            <select class="form-control search-slt" id="exampleFormControlSelect1" name="tipo">
                                 <option>Tipo de contrato</option>
                                 <option>Emprego</option>
                                 <option>Estagio</option>

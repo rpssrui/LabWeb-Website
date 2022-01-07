@@ -7,10 +7,13 @@ use App\Http\Controllers\AnuncioController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CandidaturaController;
 use App\Http\Controllers\EmpregadorController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MailController;
+use App\Models\Candidatura;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +59,11 @@ Route::get('anuncios/delete/{id}', [AnuncioController::class, 'deleteAnuncio']);
 Route::get('/searchAdd', [AnuncioController::class, 'searchAnuncio']);
 Route::get('/verMais/{id}',[AnuncioController::class, 'showVerMais'])->middleware('verified');  
 
-Route::post('contactarEmpresa',[MailController::class,'contactPost'])->name('contactarEmpresa')->middleware('verified');
 
+Route::post('contactarEmpresa/{id}',[CandidaturaController::class,'enviarCandidatura'])->name('contactarEmpresa')->middleware('verified');
+Route::get('anuncios/Candidaturas/{id}',[CandidaturaController::class,'showCandidaturas']);
+Route::get('/resposta/{id}',[CandidaturaController::class,'showRespostaForm']);
+Route::get('enviarResposta/{id}',[MailController::class,'contactPost']);
+Route::get('user/{id}', [UserController::class, 'userProfile'])->middleware('verified');
 
 Route::get('admin.home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
