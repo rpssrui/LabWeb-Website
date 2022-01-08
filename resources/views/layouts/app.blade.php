@@ -15,7 +15,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <a href="#" class="nav-item active nav-link">Quem somos</a>
+                <a href="team" class="nav-item active nav-link">Quem somos</a>
             </ul>
             <!--lOGIN EMPREGADORES -->
             @guest

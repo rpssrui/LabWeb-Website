@@ -10,19 +10,18 @@ Jobs R'Us
 
 <section id="team" class="pb-5">
     <div class="container">
-        <h5 class="section-title h1 text-center"><strong>OUR TEAM</strong></h5>
+        <h5 class="section-title h1 text-center"><strong>NOSSA EQUIPA</strong></h5>
         <div class="row">
             <!-- Team member -->
             <div class="col">
-
-                <div class="card" style="height: 35em;">
+                <div  class="card"  style="height: 35em; background-color:599FDC">
                     <div class="card-body text-center">
-                 
-                <img class="image" src="{{asset('/storage/images/1')}}" alt="profile_image" style="width: 380px;height: 380px; padding: 10px; margin-left: 30px; ">
-                                     <h4 class="card-title">Diogão</h4>
-                        <p class="card-text">Warriors Fanboy</p>
-                        <p class="card-text">38716</p>
-                        <a href="https://github.com/diogosilv" target="_blank" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+
+                    <img class="image rounded-circle" src="{{asset('/storage/images/1.jpg')}}" alt="profile_image" style="width: 200px;height: 200px; padding: 10px; margin: 0px; ">
+
+                        <h4 class="card-title">Tiago</h4>
+                        <p class="card-text">38217</p>
+                        <a href="https://github.com/tiagoss29/emprego_lab" target="_blank" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                     </div>
                 </div>
 
@@ -31,14 +30,15 @@ Jobs R'Us
             <!-- Team member -->
             <div class="col">
 
-            <div class="card" style="height: 35em;">
+                <div class="card" style="height: 35em;background-color:599FDC">
                     <div class="card-body text-center">
-                 
-                <img class="image" src="{{asset('/storage/images/1')}}" alt="profile_image" style="width: 380px;height: 380px; padding: 10px; margin-left: 30px; ">
-                                     <h4 class="card-title">Diogão</h4>
-                        <p class="card-text">Warriors Fanboy</p>
-                        <p class="card-text">38716</p>
-                        <a href="https://github.com/diogosilv" target="_blank" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+
+                    <img class="image rounded-circle" src="{{asset('/storage/images/5.jpg')}}" alt="profile_image" style="width: 200px;height: 200px; padding: 10px; margin: 0px; ">
+
+                        <h4 class="card-title">Rui</h4>
+
+                        <p class="card-text">38170</p>
+                        <a href="https://github.com/tiagoss29/emprego_lab" target="_blank" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                     </div>
                 </div>
 
@@ -46,14 +46,15 @@ Jobs R'Us
             <!-- ./Team member -->
             <div class="col">
 
-            <div class="card" style="height: 35em;">
+                <div class="card" style="height: 35em;background-color:599FDC">
                     <div class="card-body text-center">
-                 
-                <img class="image" src="{{asset('/storage/images/1')}}" alt="profile_image" style="width: 380px;height: 380px; padding: 10px; margin-left: 30px; ">
-                                     <h4 class="card-title">Diogão</h4>
-                        <p class="card-text">Warriors Fanboy</p>
-                        <p class="card-text">38716</p>
-                        <a href="https://github.com/diogosilv" target="_blank" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+
+                    <img class="image rounded-circle" src="{{asset('/storage/images/8.jpg')}}" alt="profile_image" style="width: 200px;height: 200px; padding: 10px; margin: 0px; ">
+
+                        <h4 class="card-title">Ruben</h4>
+
+                        <p class="card-text">38000</p>
+                        <a href="https://github.com/tiagoss29/emprego_lab" target="_blank" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                     </div>
                 </div>
             </div>
