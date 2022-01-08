@@ -34,13 +34,21 @@ Pesquisa
                                 <td align="center">{{$add->tipo}}</td>
                                 <form method="get" action="{{ url('verMais', [$add->id]) }}">
                                     @csrf
-                                <td align="center"> <button type="submit" class="btn btn-outline-success">Ver Mais</button> </td>
+                                    <td align="center"> <button type="submit" class="btn btn-outline-success">Ver Mais</button> </td>
                                 </form>
+                                <form method="get" action="{{ url('report', [$add->id]) }}">
+                                <td align="center"> <button type="submit" class="btn btn-outline-danger ">Reportar</button> </td>
+                                    </from>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
+                @if($message=Session::get('report'))
+                        <div class="alert alert-info">
+                            <p>{{$message}}</p>
+                        </div>
+                        @endif
             </div>
         </div>
     </div>

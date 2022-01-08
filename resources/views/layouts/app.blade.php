@@ -3,12 +3,10 @@
 <head>
     <title>@yield('title','Jobs RUs')</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 </head>
 
-<body>
-
+<body style="background-image: url('https://images.pexels.com/photos/7233126/pexels-photo-7233126.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
         <a href="/" class="navbar-brand">Home</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
@@ -110,8 +108,8 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                    <!-- CONTA CANDIDATO-->
-                    @else
+                    <!-- CONTA ADMIN-->
+                    @elseif (Auth::user()->is_admin)
                     <div class="dropdown-menu dropdown-menu-right">
                         <!-- Informações pessoais-->
                         <a class="dropdown-item" href="/informacoesPessoais/{{Auth::user()->id}}"  >
@@ -126,11 +124,29 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-
+                        <a class="dropdown-item" href="{{ route('reports') }}" onclick="event.preventDefault();
+                                                     document.getElementById('reports-form').submit();">
+                            {{ __('Reports') }}
+                        </a>
+                        <form id="reports-form" action="{{ route('reports') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                        @endif
-
+                    <!-- CONTA CANDIDATO -->
+                    @else    
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- Informações pessoais-->
+                        <a class="dropdown-item" href="/informacoesPessoais/{{Auth::user()->id}}"  >
+                            {{ __('Informações Pesoais') }}
+                        </a>
+                        </form>
+                        <!-- Logout-->
+                        <a class="dropdown-item" href="{{ route('reports') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('reports') }}" method="POST" class="d-none">
+                            @csrf
+                    @endif
                     </div>
                 </div>
                 @endguest
@@ -139,9 +155,8 @@
         @yield('content')
     </main>
     @include('includes/footer')
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>   
 </body>
 
 </html>

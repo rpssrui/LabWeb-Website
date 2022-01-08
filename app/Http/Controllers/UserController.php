@@ -2,23 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anuncio;
 use App\Models\Empregador;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
-{   
-    public function userProfile($id){
-        $user=User::find($id);
-        return view('user.userProfile',compact('user'));
+{
+    public function userProfile($id)
+    {
+        $user = User::find($id);
+        return view('user.userProfile', compact('user'));
     }
     public function uploadImage(Request $request, $id)
     {
-        $user=User::find($id);
-        if($request->hasFile('image')){
+        $user = User::find($id);
+        if ($request->hasFile('image')) {
             $filename = $request->image->getClientOriginalName();
-            $request->image->storeAs('images',$filename,'public');
-            $user->update(['image'=>$filename]);
+            $request->image->storeAs('images', $filename, 'public');
+            $user->update(['image' => $filename]);
         }
         return redirect()->back();
     }
@@ -29,9 +31,10 @@ class UserController extends Controller
     }
 
 
-    public function informacoesPessoais($id){
-        $user=User::find($id);
-        return view('user.editarPerfil',compact('user'));
+    public function informacoesPessoais($id)
+    {
+        $user = User::find($id);
+        return view('user.editarPerfil', compact('user'));
     }
 
 
@@ -56,7 +59,7 @@ class UserController extends Controller
             //}
         } else {
             echo "erro ao iniciar sessao";
-            return redirect()->route('loginCandidato')->with('error','Email-Address And Password Are Wrong.');
+            return redirect()->route('loginCandidato')->with('error', 'Email-Address And Password Are Wrong.');
         }
     }
 
@@ -75,13 +78,19 @@ class UserController extends Controller
     {
         $user = user::where('id', $id)
             ->update([
-               // 'descricao' => $request['descricao'],
-                'localidade'=>$request['localidade'],
-                'regiao'=>$request['regiao'],
+                // 'descricao' => $request['descricao'],
+                'localidade' => $request['localidade'],
+                'regiao' => $request['regiao'],
 
+            ]);
 
-        ]);
+        return back()->with('success', 'Alterações feitas com sucesso ');
+    }
 
-        return back()->with('success','Alterações feitas com sucesso ');
+    public function showReports()
+    {
+        $anuncios=Anuncio::all();
+        $anunciosRep = $anuncios->where('nrReports', '>=', 2);
+        return view('reportados', ['anuncios' => $anunciosRep]);
     }
 }

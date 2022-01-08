@@ -2,7 +2,7 @@
 
 @section('content')
 <link href="{{ asset('/css/editarPerfil.css') }}" rel="stylesheet">
-<!------ Include the above in your HEAD tag ---------->
+
 @if($user->id) {{method_field('PUT')}} @endif
 <section class="section about-section gray-bg" id="about">
     <div class="container">

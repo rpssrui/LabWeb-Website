@@ -7,8 +7,6 @@ Jobs R'Us
 @section('content')
 
 
-<!------ Include the above in your HEAD tag ---------->
-
 <div class="container">
     <div class="row pt-1 pb-1">
         <div class="col-lg-12">
@@ -20,13 +18,13 @@ Jobs R'Us
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://pbs.twimg.com/media/EGHYvttU4AAYKb7?format=jpg&name=large" class="d-block w-100" alt="...">
+                <img style="height:550px;width:1100px" src="https://www.job-hunt.org/wp-content/uploads/2021/05/Build-Your-Personal-SEO-The-25-Best-Keywords-for-You-in-Your-Job-Search.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://pbs.twimg.com/media/EGHYvtkUcAAuc8T?format=jpg&name=large" class="d-block w-100" alt="...">
+                <img style="height:550px;width:1100px" src="https://www.franksonnenbergonline.com/wp-content/uploads/2014/07/image_simplify-your-job-search.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://pbs.twimg.com/media/EGHYvtjU0AAO8w1?format=jpg&name=large" class="d-block w-100" alt="...">
+                <img style="height:550px;width:1100px" src="https://macaulay.cuny.edu/wp-content/uploads/2020/11/job-search.jpg" class="d-block w-100" alt="...">
             </div>
             <!--https://upload.wikimedia.org/wikipedia/commons/8/8d/Yarra_Night_Panorama%2C_Melbourne_-_Feb_2005.jpg-->
         </div>
@@ -40,15 +38,15 @@ Jobs R'Us
         </a>
     </div>
 </section>
-<section class="search-sec">
+<section class="search-sec" >
     <div class="container">
         <form action="{{url('searchAdd')}}" method="get">
-        @csrf
+            @csrf
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" name="nome" placeholder="O que procura?">
+                        <div  class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <input  type="text" class="form-control search-slt" name="nome" placeholder="O que procura?">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                             <select class="form-control search-slt" id="exampleFormControlSelect1" name="regiao">

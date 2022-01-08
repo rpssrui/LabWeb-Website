@@ -10,20 +10,25 @@ use App\Models\Candidatura;
 
 class AnuncioController extends Controller
 {
-	
+
+	public function report($id)
+	{
+		$anuncio = Anuncio::find($id)->increment('nrReports', 1);
+		return back()->with('report', 'O anúncio foi reportado, um admistrador irá tentar resolver o problema. Obrigado!');
+	}
+
 	public function searchAnuncio(Request $request)
 	{
 		$nome = $_GET['nome'];
 		$regiao = $_GET['regiao'];
 		$tipo = $_GET['tipo'];
 
-		$results = Anuncio::where('titulo', 'Like',$nome.'%')
+		$results = Anuncio::where('titulo', 'Like', $nome . '%')
 			->orwhere('regiao', $regiao)
 			->orwhere('tipo', $tipo)
 			->get();
-			return view('anuncios.anunciosIndex', compact('results'));
-		if(empty($results)){
-
+		return view('anuncios.anunciosIndex', compact('results'));
+		if (empty($results)) {
 		}
 		return view('anuncios.anunciosIndex', compact('results'));
 	}
@@ -40,6 +45,7 @@ class AnuncioController extends Controller
 			'habilitacoesMinimas' => $request['habilitacoesMinimas'],
 			'contactos' => $request['contactos'],
 			'setorAtividade' => $request['setorAtividade'],
+			'nrReports' => 0,
 
 		]);
 		return redirect()->route('meusAnuncios');
@@ -76,9 +82,13 @@ class AnuncioController extends Controller
 
 	public function showMeusAnuncios()
 	{
-		$anuncios = Anuncio::all();
-		return view('anuncios.meusAnuncios', ['anuncios' => $anuncios]);
+		$anuncios = Anuncio::where('idEmpresa', Auth()->user()->id)->paginate(3);
+		if (sizeof($anuncios) > 0) {
+			return view('anuncios.meusAnuncios', ['anuncios' => $anuncios]);
+		} else
+			return back()->with('error', 'Nenhum anúncio criado.');
 	}
+
 	public function deleteAnuncio($id)
 	{
 		$anuncio = Anuncio::where('id', $id)->firstOrFail();

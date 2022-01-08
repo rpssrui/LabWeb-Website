@@ -19,7 +19,8 @@ class Anuncio extends Model
         'regiao',
         'localidade',
         'contactos',
-        'habilitacoesMinimas'
+        'habilitacoesMinimas',
+        'nrReports'
     ];
     
     public function criador(){

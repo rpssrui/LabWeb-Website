@@ -31,25 +31,21 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/', function () {
     return view('home');
 });
-
 Route::get('/home', [HomeController::class, 'home']);
 Route::post('home', [HomeController::class, 'home'])->name('home');
 
+
+//rotas user
 Route::get('/registerCandidato', [UserController::class, 'registerCandidato']);
 Route::post('createCandidato', [RegisterController::class, 'createCandidato'])->name('createCandidato');
 Route::get('/informacoesPessoais/{id}', [UserController::class, 'informacoesPessoais'])->middleware('verified');
 Route::post('/uploadPP/{id}',[UserController::class, 'uploadImage']);
-
-Route::get('/login', function () {
-    return view('auth.login');
-});
-Route::post('login', [UserController::class, 'login'])->name('login');
-
 Route::get('/registerEmpregador', [UserController::class, 'registerEmpregador'])->name('registerEmpregador');
 Route::post('createEmpregador', [RegisterController::class, 'createEmpregador'])->name('createEmpregador');
+Route::get('user/{id}', [UserController::class, 'userProfile'])->middleware('verified');
+Route::post('/user/editar/{id}', [UserController::class, 'updatePerfil']);
 
-Auth::routes(['verify'=>true]);
-
+//rotas anuncios
 Route::get('/criarAnuncio', [AnuncioController::class, 'showCriarAnuncio'])->middleware('verified');    
 Route::post('criarAnuncio', [AnuncioController::class, 'createAnuncio'])->name('createAnuncio');
 Route::get('/meusAnuncios', [AnuncioController::class, 'showMeusAnuncios'])->name('meusAnuncios');
@@ -58,15 +54,18 @@ Route::put('anuncios/update/{id}', [AnuncioController::class, 'updateAnuncio']);
 Route::get('anuncios/delete/{id}', [AnuncioController::class, 'deleteAnuncio']);
 Route::get('/searchAdd', [AnuncioController::class, 'searchAnuncio']);
 Route::get('/verMais/{id}',[AnuncioController::class, 'showVerMais'])->middleware('verified');  
+Route::get('/report/{id}',[AnuncioController::class, 'report'])->middleware('verified');  
 
-
+//rotas candidaturas
 Route::post('contactarEmpresa/{id}',[CandidaturaController::class,'enviarCandidatura'])->name('contactarEmpresa')->middleware('verified');
 Route::get('anuncios/Candidaturas/{id}',[CandidaturaController::class,'showCandidaturas']);
 Route::get('/resposta/{id}',[CandidaturaController::class,'showRespostaForm']);
 Route::get('enviarResposta/{id}',[MailController::class,'contactPost']);
-Route::get('user/{id}', [UserController::class, 'userProfile'])->middleware('verified');
 
+//rotas admin
 Route::get('admin', [HomeController::class, 'adminHome'])->name('admin')->middleware('is_admin');
+Route::post('reports',[UserController::class, 'showReports'])->name('reports')->middleware('is_admin');
 
-Route::post('/user/editar/{id}', [UserController::class, 'updatePerfil']);
+//rotas extra
 Route::get('team', [HomeController::class, 'team']);
+Auth::routes(['verify'=>true]);
