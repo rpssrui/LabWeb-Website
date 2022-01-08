@@ -20,8 +20,8 @@ Candidaturas
                     </div>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-striped table-bordered table-list">
-                        <thead>
+                <table class="table table-secondary">
+                        <thead class="thead thead-dark">
                             <tr>
                                 <th>Nome do Candidato</th>
                                 <th>Email do Candidato</th>

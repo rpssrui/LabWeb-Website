@@ -36,6 +36,6 @@ class CandidaturaController extends Controller
             'idAnuncio' => $idAnuncio,
             'mensagem' => $request['mensagem'],
         ]);
-        return view('home');
+        return redirect()->route('home')->with('success','Candidatura enviada com sucesso!');
     }
 }

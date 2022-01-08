@@ -5,7 +5,16 @@ Jobs R'Us
 @endsection
 
 @section('content')
-
+@if($message=Session::get('error'))
+    <div class="alert alert-danger">
+        <p>{{$message}}</p>
+    </div>
+    @endif
+    @if($message=Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{$message}}</p>
+    </div>
+    @endif
 
 <div class="container">
     <div class="row pt-1 pb-1">
@@ -38,15 +47,15 @@ Jobs R'Us
         </a>
     </div>
 </section>
-<section class="search-sec" >
+<section class="search-sec">
     <div class="container">
         <form action="{{url('searchAdd')}}" method="get">
             @csrf
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div  class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input  type="text" class="form-control search-slt" name="nome" placeholder="O que procura?">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <input type="text" class="form-control search-slt" name="nome" placeholder="O que procura?">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                             <select class="form-control search-slt" id="exampleFormControlSelect1" name="regiao">
@@ -98,6 +107,7 @@ Jobs R'Us
             </div>
         </form>
     </div>
+ 
 </section>
 
 

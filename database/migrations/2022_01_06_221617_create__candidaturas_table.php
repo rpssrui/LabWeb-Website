@@ -27,13 +27,13 @@ class CreateCandidaturasTable extends Migration
             ->references('id')
             ->on('users')
             ->onUpdate('CASCADE')
-            ->onDelete('RESTRICT');
+            ->onDelete('CASCADE');
           
             $table->foreign('idAnuncio'                                                                                                                                                                                                                                                                                                                                 )
             ->references('id')
             ->on('anuncios')
             ->onUpdate('CASCADE')
-            ->onDelete('RESTRICT');
+            ->onDelete('CASCADE');
         });
     }
 

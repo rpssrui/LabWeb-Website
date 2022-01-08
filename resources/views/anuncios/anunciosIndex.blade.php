@@ -17,13 +17,14 @@ Pesquisa
                     </div>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-striped table-bordered table-list">
-                        <thead>
+                    <table class="table table-secondary">
+                        <thead class="thead thead-dark">
                             <tr>
                                 <th>Título</th>
                                 <th>Data</th>
                                 <th>Tipo de Contrato</th>
-                                <th></th>
+                                <th>Ver Mais</th>
+                                <th>Reportar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +38,7 @@ Pesquisa
                                     <td align="center"> <button type="submit" class="btn btn-outline-success">Ver Mais</button> </td>
                                 </form>
                                 <form method="get" action="{{ url('report', [$add->id]) }}">
-                                <td align="center"> <button type="submit" class="btn btn-outline-danger ">Reportar</button> </td>
+                                    <td align="center"> <button type="submit" class="btn btn-outline-danger ">Reportar</button> </td>
                                     </from>
                             </tr>
                             @endforeach
@@ -45,10 +46,10 @@ Pesquisa
                     </table>
                 </div>
                 @if($message=Session::get('report'))
-                        <div class="alert alert-info">
-                            <p>{{$message}}</p>
-                        </div>
-                        @endif
+                <div class="alert alert-info">
+                    <p>{{$message}}</p>
+                </div>
+                @endif
             </div>
         </div>
     </div>
