@@ -42,7 +42,7 @@ Route::get('/informacoesPessoais/{id}', [UserController::class, 'informacoesPess
 Route::post('/uploadPP/{id}',[UserController::class, 'uploadImage']);
 Route::get('/registerEmpregador', [UserController::class, 'registerEmpregador'])->name('registerEmpregador');
 Route::post('createEmpregador', [RegisterController::class, 'createEmpregador'])->name('createEmpregador');
-Route::get('user/{id}', [UserController::class, 'userProfile'])->middleware('verified');
+Route::get('user/{id}', [UserController::class, 'userProfile'])->name('user')->middleware('verified');
 Route::post('/user/editar/{id}', [UserController::class, 'updatePerfil']);
 
 //rotas anuncios

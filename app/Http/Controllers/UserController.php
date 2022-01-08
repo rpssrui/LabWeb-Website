@@ -78,18 +78,18 @@ class UserController extends Controller
     {
         $user = user::where('id', $id)
             ->update([
-                // 'descricao' => $request['descricao'],
                 'localidade' => $request['localidade'],
                 'regiao' => $request['regiao'],
-
+                'date_of_birth' => $request['date_of_birth'],
+                'descricao' => $request['descricao'],
             ]);
 
-        return back()->with('success', 'Alterações feitas com sucesso ');
+        return redirect()->route('user',Auth()->user()->id)->with('success', 'Alterações feitas com sucesso ');
     }
 
     public function showReports()
     {
-        $anuncios=Anuncio::all();
+        $anuncios = Anuncio::all();
         $anunciosRep = $anuncios->where('nrReports', '>=', 2);
         return view('reportados', ['anuncios' => $anunciosRep]);
     }

@@ -4,6 +4,7 @@
     <title>@yield('title','Jobs RUs')</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
 </head>
 
 <body style="background-image: url('https://images.pexels.com/photos/7233126/pexels-photo-7233126.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
@@ -15,7 +16,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <a href="team" class="nav-item active nav-link">Quem somos</a>
+                <a href="{{url('/team')}}" class="nav-item active nav-link">Quem somos</a>
             </ul>
             <!--lOGIN EMPREGADORES -->
             @guest
