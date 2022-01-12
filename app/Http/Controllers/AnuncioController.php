@@ -23,7 +23,7 @@ class AnuncioController extends Controller
 		$regiao = $_GET['regiao'];
 		$tipo = $_GET['tipo'];
 
-		$results = Anuncio::where('titulo', 'Like', $nome . '%')
+		$results = Anuncio::where('titulo', 'Like','%'. $nome . '%')
 			->orwhere('regiao', $regiao)
 			->orwhere('tipo', $tipo)
 			->get();
@@ -48,7 +48,7 @@ class AnuncioController extends Controller
 			'nrReports' => 0,
 
 		]);
-		return redirect()->route('meusAnuncios');
+		return redirect()->route('/meusAnuncios');
 	}
 
 	public function editAnuncio($id)
@@ -93,7 +93,11 @@ class AnuncioController extends Controller
 	{
 		$anuncio = Anuncio::where('id', $id)->firstOrFail();
 		$anuncio->delete();
-		return redirect(route('meusAnuncios'));
+		$aux=Anuncio::get()->all();
+		if(sizeof($aux)>0){
+			return redirect(route('/meusAnuncios'));
+		}
+		else return redirect(route('home'));
 	}
 
 	public function showVerMais($id)

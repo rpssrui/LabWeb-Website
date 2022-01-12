@@ -118,19 +118,20 @@
                         {{ __('Informações Pesoais') }}
                     </a>
                     </form>
-                    <!-- Logout-->
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                    <!-- informações pessoais -->
                     <a class="dropdown-item" href="{{ route('reports') }}" onclick="event.preventDefault();
                                                      document.getElementById('reports-form').submit();">
                         {{ __('Reports') }}
                     </a>
                     <form id="reports-form" action="{{ route('reports') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                     <!-- Logout-->
+                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
                 </div>

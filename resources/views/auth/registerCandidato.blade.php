@@ -71,13 +71,37 @@
                             <label for="regiao" class="col-md-4 col-form-label text-md-right">{{ __('Região') }}</label>
 
                             <div class="col-md-6">
-                                <input id="regiao" type="text" class="form-control @error('regiao') is-invalid @enderror" name="regiao" value="{{ old('regiao') }}" required autocomplete="regiao" autofocus>
+                                <select style="max-width:90%;" class="form-control search-slt" id="exampleFormControlSelect1" name="regiao">
 
-                                @error('regiao')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                                    <option>Aveiro</option>
+                                    <option>Beja</option>
+                                    <option>Braga</option>
+                                    <option>Bragança</option>
+                                    <option>Castelo Branco</option>
+                                    <option>Coimbra</option>
+                                    <option>Évora</option>
+                                    <option>Faro</option>
+                                    <option>Guarda</option>
+                                    <option>Leiria</option>
+                                    <option>Lisboa</option>
+                                    <option>Portalegre</option>
+                                    <option>Porto</option>
+                                    <option>Santarém</option>
+                                    <option>Setúbal</option>
+                                    <option>Viana do Castelo</option>
+                                    <option>Vila Real</option>
+                                    <option>Ilha da Madeira</option>
+                                    <option>Ilha de S.Miguel</option>
+                                    <option>Ilha de Porto Santo</option>
+                                    <option>Ilha de Santa Maria</option>
+                                    <option>Ilha Terceira</option>
+                                    <option>Ilha da Graciosa</option>
+                                    <option>Ilha S.Jorge</option>
+                                    <option>Ilha do Pico</option>
+                                    <option>Ilha do Faial</option>
+                                    <option>Ilha das Flores</option>
+                                    <option>Ilha do Corvo</option>
+                                </select>
                             </div>
                         </div>
 
@@ -103,15 +127,15 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-                                <button type="submit" class="btn btn-primary" >
-                                    {{ __('Registo') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('Registo') }}
+                        </button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
+</div>
+</div>
 </div>
 @endsection

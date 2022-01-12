@@ -82,7 +82,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request['password']),
             'is_empregador' => 0,
         ]);
-        return view('auth.login');
+        return redirect()->route('login');
     }
 
     protected function createEmpregador(Request $request)
@@ -100,12 +100,12 @@ class RegisterController extends Controller
         } else {
             User::create([
                 'companyName' => $request['companyName'],
-                'localidade' => $request['sede'],
+                'regiao' => $request['sede'],
                 'email' => $request['email'],
                 'password' => Hash::make($request['password']),
                 'is_empregador' => 1,
             ]);
-            return view('auth.login');
+            return redirect()->route('login');
         }
     }
 }

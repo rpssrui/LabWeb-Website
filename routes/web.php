@@ -47,8 +47,8 @@ Route::post('/user/editar/{id}', [UserController::class, 'updatePerfil']);
 
 //rotas anuncios
 Route::get('/criarAnuncio', [AnuncioController::class, 'showCriarAnuncio'])->middleware('verified');    
-Route::post('criarAnuncio', [AnuncioController::class, 'createAnuncio'])->name('createAnuncio');
-Route::get('/meusAnuncios', [AnuncioController::class, 'showMeusAnuncios'])->name('meusAnuncios');
+Route::post('createAnuncio', [AnuncioController::class, 'createAnuncio'])->name('createAnuncio');
+Route::get('/meusAnuncios', [AnuncioController::class, 'showMeusAnuncios'])->name('/meusAnuncios');
 Route::get('/anuncios/edit/{id}', [AnuncioController::class, 'editAnuncio']);
 Route::put('anuncios/update/{id}', [AnuncioController::class, 'updateAnuncio']);
 Route::get('anuncios/delete/{id}', [AnuncioController::class, 'deleteAnuncio']);

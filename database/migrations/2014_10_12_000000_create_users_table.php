@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('is_admin')->default(false);
             $table->boolean('is_empregador')->default(false);
-            $table->string('localidade');
+            $table->string('localidade')->nullable();
             $table->string('image')->default('user.png');
             $table->string('regiao')->nullable();
             $table->date('date_of_birth')->nullable();

@@ -26,7 +26,7 @@ Meus Anuncios
                 </div>
                 <div class="panel-body">
                 <table class="table table-secondary">
-                        <thead class="thead thead-dark">>
+                        <thead class="thead thead-dark">
                             <tr>
                                 <th><em class="fa fa-cog"></em></th>
                                 <th>Título</th>
