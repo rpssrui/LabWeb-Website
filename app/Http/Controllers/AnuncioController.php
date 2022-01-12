@@ -13,24 +13,22 @@ class AnuncioController extends Controller
 
 	public function report($id)
 	{
-		$anuncio = Anuncio::find($id)->increment('nrReports', 1);
+		Anuncio::find($id)->increment('nrReports', 1);
 		return back()->with('report', 'O anúncio foi reportado, um admistrador irá tentar resolver o problema. Obrigado!');
 	}
 
 	public function searchAnuncio(Request $request)
 	{
-		$nome = $_GET['nome'];
-		$regiao = $_GET['regiao'];
-		$tipo = $_GET['tipo'];
+		$nome = $request['nome'];
+		$regiao = $request['regiao'];
+		$tipo = $request['tipo'];
 
-		$results = Anuncio::where('titulo', 'Like','%'. $nome . '%')
+		$results = Anuncio::where('titulo', 'Like', '%' . $nome . '%')
 			->orwhere('regiao', $regiao)
 			->orwhere('tipo', $tipo)
 			->get();
 		return view('anuncios.anunciosIndex', compact('results'));
-		if (empty($results)) {
-		}
-		return view('anuncios.anunciosIndex', compact('results'));
+		
 	}
 
 	protected function createAnuncio(Request $request)
@@ -71,10 +69,10 @@ class AnuncioController extends Controller
 				'setorAtividade' => $request['setorAtividade'],
 			]);
 
-		return redirect(route('meusAnuncios'));
+		return redirect(route('/meusAnuncios'));
 	}
 
-	public function showCriarAnuncio()
+	public function meshowCriarAnuncio()
 	{
 
 		return view('anuncios.criarAnuncio');
@@ -85,7 +83,7 @@ class AnuncioController extends Controller
 		$anuncios = Anuncio::where('idEmpresa', Auth()->user()->id)->paginate(3);
 		if (sizeof($anuncios) > 0) {
 			return view('anuncios.meusAnuncios', ['anuncios' => $anuncios]);
-		} else
+		}
 			return back()->with('error', 'Nenhum anúncio criado.');
 	}
 
@@ -93,11 +91,11 @@ class AnuncioController extends Controller
 	{
 		$anuncio = Anuncio::where('id', $id)->firstOrFail();
 		$anuncio->delete();
-		$aux=Anuncio::get()->all();
-		if(sizeof($aux)>0){
+		$aux = Anuncio::get()->all();
+		if (sizeof($aux) > 0) {
 			return redirect(route('/meusAnuncios'));
 		}
-		else return redirect(route('home'));
+		return redirect(route('home'));
 	}
 
 	public function showVerMais($id)

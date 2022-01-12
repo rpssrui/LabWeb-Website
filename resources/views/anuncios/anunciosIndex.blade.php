@@ -38,8 +38,9 @@ Pesquisa
                                     <td align="center"> <button type="submit" class="btn btn-outline-success">Ver Mais</button> </td>
                                 </form>
                                 <form method="get" action="{{ url('report', [$add->id]) }}">
-                                    <td align="center"> <button type="submit" class="btn btn-outline-danger ">Reportar</button> </td>
-                                    </from>
+                                    @csrf
+                                    <td align="center"> <button type="submit" class="btn btn-outline-danger">Report</button> </td>
+                                </form>
                             </tr>
                             @endforeach
                         </tbody>

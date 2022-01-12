@@ -59,4 +59,9 @@ class UserTest extends TestCase
         $response->assertRedirect('/meusAnuncios');
     }
 
+    public function test_if_shows_meusAnuncios(){
+        $response=$this->post('/meusAnuncios');
+        $response->assertRedirect('/meusAnuncios');
+    }
+
 }

@@ -18,29 +18,27 @@ class MailController extends Controller
         public function contactPost(Request $request, $id)
         {
                 $candidatura = Candidatura::find($id)->firstorfail();
-                $anuncio=Anuncio::find($candidatura->idAnuncio)->firstorfail();
-                $empresa=User::find($anuncio->idEmpresa)->firstorfail();
-                
+                $anuncio = Anuncio::find($candidatura->idAnuncio)->firstorfail();
+                $empresa = User::find($anuncio->idEmpresa)->firstorfail();
+
                 Resposta::create([
-                        'resposta'=>$request->mensagem,
-                        'idCandidatura'=>$candidatura->id
+                        'resposta' => $request->mensagem,
+                        'idCandidatura' => $candidatura->id
                 ]);
 
                 $data = array(
                         "body" => $request->mensagem,
                         "subject" => $request->subject,
                         "emailContacto" => $request->txtEmail,
-                        "nomeEmpresa"=>$empresa->companyName,
+                        "nomeEmpresa" => $empresa->companyName,
                 );
 
-                if($request->Sim){
-                Mail::to($candidatura->emailCandidato)
-                ->send(new defaultMail($data));
+                if ($request->Sim) {
+                        Mail::to($candidatura->emailCandidato)
+                                ->send(new defaultMail($data));
 
-                return back()->with('success', 'Email enviado com Sucesso!');
-                }
-
-                else 
-                return back()->with('success','Resposta enviada com Sucesso, pode ainda responder novamente através do email');
+                        return back()->with('success', 'Email enviado com Sucesso!');
+                } 
+                 return back()->with('success', 'Resposta enviada com Sucesso, pode ainda responder novamente através do email');
         }
 }
