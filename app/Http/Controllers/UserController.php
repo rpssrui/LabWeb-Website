@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         return view('user.userProfile', compact('user'));
-    }
+    } 
     public function uploadImage(Request $request, $id)
     {
         $user = User::find($id);
