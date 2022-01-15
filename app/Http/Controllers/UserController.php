@@ -33,6 +33,7 @@ class UserController extends Controller
 
     public function informacoesPessoais($id)
     {
+
         $user = User::find($id);
         return view('user.editarPerfil', compact('user'));
     }
@@ -51,12 +52,8 @@ class UserController extends Controller
         ]);
 
         if (auth()->attempt(array('email' => $input->email, 'password' => $input->password))) {
-            //if (auth()->user()->is_admin) {
-            //    return redirect()->route('admin.home');
-            //} else {
             echo "sessao iniciada";
             return redirect()->route('home');
-            //}
         } else {
             echo "erro ao iniciar sessao";
             return redirect()->route('loginCandidato')->with('error', 'Email-Address And Password Are Wrong.');

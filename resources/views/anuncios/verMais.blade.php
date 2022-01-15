@@ -50,11 +50,36 @@
 <div class="container">
     <p> Está interessado neste anúncio?
         Entre já em contacto com o anunciante.</p>
-    <form method="POST" action="{{ url('contactarEmpresa', $anuncio->id) }}">
+    <form method="POST" action="{{ url('contactarEmpresa', $anuncio->id) }}"  enctype="multipart/form-data">
         @csrf
+
         <textarea id="mensagem" name="mensagem" class="form-control" placeholder="O utilizador {{Auth::user()->firstName}} {{Auth::user()->lastName}} está interassado no seu anuncio."></textarea>
+        <div class="row">
+
+            <div class="col-md-6">
+                <input type="file" name="file">
+
+            </div>
+          
+        </div>
         <button type="submit" class="btn btn-primary">Enviar Candidatura!</button>
+
+
     </form>
+
+    <div class="container">
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+        @endif
+
+
+
+    </div>
+</div>
 </div>
 
 @endsection

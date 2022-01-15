@@ -12,6 +12,7 @@ use App\Http\Controllers\EmpregadorController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MailController;
 use App\Models\Candidatura;
+use App\Http\Controllers\PDFController;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
@@ -69,3 +70,5 @@ Route::post('reports',[UserController::class, 'showReports'])->name('reports')->
 //rotas extra
 Route::get('team', [HomeController::class, 'team']);
 Auth::routes(['verify'=>true]);
+
+Route::get('/Curriculo/{id}',[PDFController::class,'generatePDF']);

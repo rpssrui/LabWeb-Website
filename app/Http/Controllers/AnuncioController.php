@@ -72,7 +72,7 @@ class AnuncioController extends Controller
 		return redirect(route('/meusAnuncios'));
 	}
 
-	public function meshowCriarAnuncio()
+	public function showCriarAnuncio()
 	{
 
 		return view('anuncios.criarAnuncio');

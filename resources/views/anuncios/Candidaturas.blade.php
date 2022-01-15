@@ -21,13 +21,15 @@ Candidaturas
                 </div>
                 <div class="panel-body">
                 <table class="table table-secondary">
+                <caption>tavbela das candidaturas</caption>
                         <thead class="thead thead-dark">
                             <tr>
-                                <th>Nome do Candidato</th>
-                                <th>Email do Candidato</th>
-                                <th>Data de Envio</th>
-                                <th>Mensagem</th>
-                                <th>Responder</th>
+                                <th id="nome">Nome do Candidato</th>
+                                <th id="email">Email do Candidato</th>
+                                <th id="data">Data de Envio</th>
+                                <th id="mensagem">Mensagem</th>
+                                <th id="curriculo">Curriculo</th>
+                                <th id="botao responde">Responder</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +41,9 @@ Candidaturas
                                 <td align="center">{{$candidatura->emailCandidato}}</td>
                                 <td align="center">{{$candidatura->created_at}}</td>
                                 <td align="center">{{$candidatura->mensagem}}</td>
+                                <td align="center">
+                                    <a href="/Curriculo/{{$candidatura->id}}" class="btn btn-default"><em class=" fa fa-cloud-download"></em></a>
+                                </td>
                                 <td align="center">
                                     <a href="/resposta/{{$candidatura->id}}" class="btn btn-default"><em class="fa fa-envelope"></em></a>
                                 </td>

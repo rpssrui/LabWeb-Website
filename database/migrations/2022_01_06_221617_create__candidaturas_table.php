@@ -21,6 +21,8 @@ class CreateCandidaturasTable extends Migration
             $table->timestamp('dataCandidatura');
             $table->unsignedBigInteger('idAnuncio');
             $table->string('mensagem')->nullable();
+            $table->string('file_path')->nullable();
+            $table->string('file_name')->nullable();
             $table->timestamps();
 
             $table->foreign('idCandidato')
